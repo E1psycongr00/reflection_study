@@ -1,10 +1,13 @@
 package fields.deserialize.config;
 
+import java.util.Arrays;
+
 public class GameConfig {
 
     private int releaseYear;
     private String gameName;
     private double price;
+    private String[] characterNames;
 
     public int getReleaseYear() {
         return releaseYear;
@@ -24,6 +27,7 @@ public class GameConfig {
             "releaseYear=" + releaseYear +
             ", gameName='" + gameName + '\'' +
             ", price=" + price +
+            ", characterNames=" + Arrays.toString(characterNames) +
             '}';
     }
 }
