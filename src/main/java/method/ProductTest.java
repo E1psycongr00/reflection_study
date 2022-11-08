@@ -8,10 +8,31 @@ import java.util.Map;
 public class ProductTest {
 
     public static void main(String[] args) {
-        testGetter(Product.class);
+        testGetters(Product.class);
+        testSetters(Product.class);
     }
 
-    public static void testGetter(Class<?> dataClass) {
+    public static void testSetters(Class<?> dataClass) {
+        Field[] fields = dataClass.getDeclaredFields();
+
+        for (Field field : fields) {
+            String setterName = "set" + capitalizeFirstLetter(field.getName());
+
+            Method setterMethod = null;
+            try {
+                setterMethod = dataClass.getMethod(setterName, field.getType());
+            } catch (NoSuchMethodException e) {
+                throw new IllegalStateException(String.format("Setter: %s not found", setterName));
+            }
+
+            if (!setterMethod.getReturnType().equals(void.class)) {
+                throw new IllegalStateException(
+                    String.format("Setter: %s must return void type", setterName));
+            }
+        }
+    }
+
+    public static void testGetters(Class<?> dataClass) {
         Field[] fields = dataClass.getDeclaredFields();
 
         Map<String, Method> methodNameToMethod = mapMethodNameToMethod(dataClass);

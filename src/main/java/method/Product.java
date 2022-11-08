@@ -13,4 +13,12 @@ public class Product {
     public int getAge() {
         return age;
     }
+
+    public void setHello(String hello) {
+        this.hello = hello;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
