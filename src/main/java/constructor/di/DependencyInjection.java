@@ -13,7 +13,7 @@ public class DependencyInjection {
     }
 
     private static <T> T createInstanceRecursively(Class<T> clazz)
-        throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        throws InvocationTargetException, InstantiationException, IllegalAccessException {
         // 생성자 정보 가져옴
         Constructor<?> constructor = getConstructor(clazz);
 
