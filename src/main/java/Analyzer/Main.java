@@ -14,7 +14,7 @@ public class Main {
         Class<?> hasMapClass = mapObject.getClass();
         Class<?> squareClass = Class.forName("Main$Square");
 
-//        printClassInfo(stringClass, hasMapClass, squareClass);
+
         printClassInfo(Collections.class, boolean.class, int[][].class, Color.class);
     }
 
